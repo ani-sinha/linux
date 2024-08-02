@@ -2665,6 +2665,9 @@ int sev_mem_enc_ioctl(struct kvm *kvm, void __user *argp)
 	case KVM_SEV_SNP_LAUNCH_FINISH:
 		r = snp_launch_finish(kvm, &sev_cmd);
 		break;
+	case KVM_SEV_SNP_LAUNCH_DESTROY:
+		r = sev_vm_destroy(kvm);
+		break;
 	default:
 		r = -EINVAL;
 		goto out;
